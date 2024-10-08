@@ -19,6 +19,21 @@ public class App {
             System.out.print("Pessoa " + (i + 1) + "(Nom-Sexo, Daniela-F): ");
             String entrada = scanner.nextLine();
             String[] dados = entrada.split("-");
+            if(dados.length == 2) {
+                String nome = dados[0].trim();
+                String sexo = dados[1].trim().toUpperCase();
+                if(sexo.equals("M") || sexo.equals("F")){
+                    pessoas.add(new Pessoa(nome, sexo.equals("M") ? "Masculino" : "Feminino"));
+                } else{
+                    System.out.println("Sexo inválido. Use 'M' para Masculino ou 'F' para Feminino. Tente novamente.");
+                    i--;
+                }
+            } else {
+                System.out.println("Formato inválido. Use o formato (Nome-Sexo). Tente novamente.");
+                i--;
+            }
         }
+
+        // Classificação e exibição das listas
     }
 }
